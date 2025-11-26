@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resposta do Formulário</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9f5ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            max-width: 700px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #0055aa;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        button {
+            margin-top: 20px;
+            background-color: #0077cc;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <h1>Dados Enviados</h1>
+
+    <div id="resultado"></div>
+
+    <button onclick="voltar()">Voltar ao formulário</button>
+</main>
+
+<script>
+    // Recupera os dados salvos
+    const dados = JSON.parse(localStorage.getItem("torcedor"));
+
+    // Monta a exibição dos dados
+    if (dados) {
+        document.getElementById("resultado").innerHTML = `
+            <p><strong>Nome:</strong> ${dados.nome}</p>
+            <p><strong>Time do coração:</strong> ${dados.time}</p>
+            <p><strong>Jogador preferido:</strong> ${dados.jogador}</p>
+            <p><strong>Momento marcante:</strong> ${dados.titulo}</p>
+            <p><strong>Pior momento:</strong> ${dados.piorMomento}</p>
+        `;
+    }
+
+    // Função para voltar ao formulário
+    function voltar() {
+        window.location.href = "Noticias de Futebol.html";
+    }
+</script>
+
+</body>
+</html>
